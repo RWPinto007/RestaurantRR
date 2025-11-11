@@ -1,0 +1,264 @@
+{
+	"id": "af13cdd6-4dbf-4aea-9ce3-b8cf4bb43779",
+	"name": "TWB restaurant",
+	"timestamp": "2023-03-05T21:35:49.549Z",
+	"collection_id": "24256964-1c9d4329-b2ac-4d8f-a13f-bd103dd9bcc7",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-03-05T21:35:48.424Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "4e0ec3ec-b6ab-4df5-9368-b5302d12909c",
+			"name": "BuscarUsuarios",
+			"url": "http://localhost:3002/users",
+			"time": 8,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "47b2e2ea-c2e6-4721-b7bc-a4bc25235d92",
+			"name": "Registrar Usuarios",
+			"url": "http://localhost:3002/register",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "448b6254-4590-4d86-ad1a-819a4d6e8f1d",
+			"name": "Authenticação-register",
+			"url": "http://localhost:3002/auth/register",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "48cce69c-450f-498d-99df-96f31e27e319",
+			"name": "Autenticação-login",
+			"url": "http://localhost:3002/auth/login",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c8498418-d119-4d29-b733-f2caa8575dba",
+			"name": "autenticação-changePwd",
+			"url": "http://localhost:3002/auth/login",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bcfac20a-33d8-4613-967c-e1199dda43db",
+			"name": "registar pedidos",
+			"url": "http://localhost:3002/orders",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d2a1ffe1-4417-4177-9242-9f38d193d3ce",
+			"name": "Deletar pedidos por ID",
+			"url": "http://localhost:3002/order/:id",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2c7e5564-fb3c-4eb9-914a-f4a8d391ecbb",
+			"name": "buscar Pedidos",
+			"url": "http://localhost:3002/orders",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a606f9fd-3a55-4b78-a804-de99fe541cbc",
+			"name": "GET MEnu",
+			"url": "http://localhost:3002/menu",
+			"time": 2,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				2
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3efb7d94-f6c2-4274-886e-d25b3b463581",
+			"name": "registar entrega",
+			"url": "http://localhost:3002/delivery/:id",
+			"time": 3,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4fd23619-1cbc-4f3c-b8b6-80714d9b6f3e",
+			"name": "Get Server Info",
+			"url": "http://localhost:3002/serverinfo",
+			"time": 4,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 39,
+	"collection": {
+		"requests": [
+			{
+				"id": "4e0ec3ec-b6ab-4df5-9368-b5302d12909c",
+				"method": "GET"
+			},
+			{
+				"id": "47b2e2ea-c2e6-4721-b7bc-a4bc25235d92",
+				"method": "POST"
+			},
+			{
+				"id": "448b6254-4590-4d86-ad1a-819a4d6e8f1d",
+				"method": "POST"
+			},
+			{
+				"id": "48cce69c-450f-498d-99df-96f31e27e319",
+				"method": "POST"
+			},
+			{
+				"id": "c8498418-d119-4d29-b733-f2caa8575dba",
+				"method": "POST"
+			},
+			{
+				"id": "bcfac20a-33d8-4613-967c-e1199dda43db",
+				"method": "POST"
+			},
+			{
+				"id": "d2a1ffe1-4417-4177-9242-9f38d193d3ce",
+				"method": "DELETE"
+			},
+			{
+				"id": "2c7e5564-fb3c-4eb9-914a-f4a8d391ecbb",
+				"method": "GET"
+			},
+			{
+				"id": "a606f9fd-3a55-4b78-a804-de99fe541cbc",
+				"method": "GET"
+			},
+			{
+				"id": "3efb7d94-f6c2-4274-886e-d25b3b463581",
+				"method": "POST"
+			},
+			{
+				"id": "4fd23619-1cbc-4f3c-b8b6-80714d9b6f3e",
+				"method": "GET"
+			}
+		]
+	}
+}

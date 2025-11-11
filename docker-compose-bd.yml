@@ -1,0 +1,28 @@
+version: "20.10.22"
+
+services:
+  api-auth:
+    build:
+      context: ./
+      dockerfile: dockerfile
+    command: npm start
+    container_name: MEI_G18_Rogerio
+    volumes:
+      - ./auth:/usr/app/auth/
+      - ./usr/app/auth/node-modules
+    restart: always
+    ports:
+      - "3000:3000"
+    networks: -nw
+    environment:
+      DATABASE_HOST: mongoDB
+      DATABASE_PORT: 27017
+      DATABASE_USER: root
+      DATABASE_PASS: 12345
+      DATABASE_NAME: TWB
+      APP_PORT: 3002
+
+networks:
+  nw:
+    name: nw
+    driver: bridge

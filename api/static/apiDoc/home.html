@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Form</title>
+    <style>
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #cc8b08;
+            border: 1px solid #ae0f0f;
+        }
+
+        .login-form h2 {
+            text-align: center;
+        }
+
+        .login-form input[type=text],
+        .login-form input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #d49d06;
+            box-sizing: border-box;
+        }
+
+        .login-form button {
+            background-color: #b30a07;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-form button:hover {
+            opacity: 0.8;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-form">
+        <h2>Tio Waldner´s Burger</h2>
+        <form id="login-form">
+            <label>
+                Username:
+                <input type="text" id="username" />
+            </label>
+            <label>
+                Password:
+                <input type="password" id="password" />
+            </label>
+            <button type="submit">Log in</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        const loginForm = document.getElementById('login-form');
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const data = {
+                username: username,
+                password: password
+            };
+            fetch('https://your-api.com/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // TODO: Handle successful login
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        });
+    </script>
+</body>
+
+</html>
