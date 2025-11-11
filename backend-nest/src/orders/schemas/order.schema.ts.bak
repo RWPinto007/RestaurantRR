@@ -1,0 +1,31 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document, Types } from 'mongoose';
+
+export type OrderDocument = Order & Document;
+
+@Schema({ timestamps: true })
+export class Order {
+  @Prop({ type: Types.ObjectId, ref: 'User', required: true })
+  user: Types.ObjectId;
+
+  @Prop([{ productId: String, title: String, price: Number, qty: Number }])
+  items: any[];
+
+  @Prop({ default: 'pending' })
+  status: string;
+
+  @Prop({ default: 0 })
+  total: number;
+
+  @Prop({ default: null })
+  deliveryInfo: {
+    lat?: number;
+    lng?: number;
+    eta?: string;
+  };
+
+  @Prop({ default: false })
+  paid: boolean;
+}
+
+export const OrderSchema = SchemaFactory.createForClass(Order);
