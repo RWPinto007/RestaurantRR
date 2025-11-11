@@ -1,0 +1,53 @@
+import { Injectable, UnauthorizedException, BadRequestException } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcryptjs';
+import { UsersService } from '../users/users.service';
+import { User, UserDocument } from '../users/schemas/user.schema';
+import { Types } from 'mongoose';
+
+@Injectable()
+export class AuthService {
+  constructor(
+    private readonly usersService: UsersService,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  async validateUser(email: string, password: string): Promise<User & { _id: Types.ObjectId }> {
+    const user = await this.usersService.findByEmail(email);
+    if (!user) throw new UnauthorizedException('Invalid credentials');
+
+    const passwordValid = await bcrypt.compare(password, user.password);
+    if (!passwordValid) throw new UnauthorizedException('Invalid credentials');
+
+    return user as User & { _id: Types.ObjectId };
+  }
+
+  async login(body: { email: string; password: string }) {
+    const user = await this.validateUser(body.email, body.password);
+
+    const payload = { id: user._id.toString(), email: user.email, role: user.role };
+    return {
+      access_token: this.jwtService.sign(payload),
+      user: payload,
+    };
+  }
+
+  async register(body: { name: string; email: string; password: string }) {
+    const existing = await this.usersService.findByEmail(body.email);
+    if (existing) throw new BadRequestException('Email already exists');
+
+    const hashedPassword = await bcrypt.hash(body.password, 10);
+
+    const user = await this.usersService.createUser({
+      name: body.name,
+      email: body.email,
+      password: hashedPassword,
+    });
+
+    const payload = { id: user._id.toString(), email: user.email, role: user.role };
+    return {
+      access_token: this.jwtService.sign(payload),
+      user: payload,
+    };
+  }
+}
