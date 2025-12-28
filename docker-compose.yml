@@ -1,13 +1,13 @@
-version: "3.8"
+version: "3.9"
 
 services:
   backend:
-    build: ./backend
+    build: ./backend-nest
     container_name: restaurant-backend
     ports:
-      - "3002:3002"
+      - "3002:3000"
     env_file:
-      - ./backend/.env
+      - ./backend-nest/.env
     depends_on:
       - mongo
 
@@ -15,12 +15,12 @@ services:
     build: ./frontend
     container_name: restaurant-frontend
     ports:
-      - "80:80"
+      - "80:3000"
     depends_on:
       - backend
 
   mongo:
-    image: mongo:7
+    image: mongo:latest
     container_name: restaurant-mongo
     restart: always
     ports:
