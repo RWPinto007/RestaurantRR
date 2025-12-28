@@ -9,8 +9,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import CartProvider from './context/CartContext';
 import AuthProvider from './context/AuthContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -21,9 +22,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<Menu />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/order/:id" element={<OrderTracking />} />
+            <Route path="/cart" element={<PrivateRoute><Cart /></PrivateRoute>} />
+            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
+            <Route path="/order/:id" element={<PrivateRoute><OrderTracking /></PrivateRoute>} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

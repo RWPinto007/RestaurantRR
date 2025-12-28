@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getOrderById } from '../services/orderService';
 import DeliveryMap from '../components/DeliveryMap';
 
-export default function OrderTracking({ orderId }) {
+export default function OrderTracking() {
+  const { id } = useParams();
   const [order, setOrder] = useState(null);
 
   useEffect(() => {
     async function fetchOrder() {
       try {
-        const data = await getOrderById(orderId);
+        const data = await getOrderById(id);
         setOrder(data);
       } catch (err) {
         console.error(err);
       }
     }
     fetchOrder();
-  }, [orderId]);
+  }, [id]);
 
   if (!order) return <p>Loading...</p>;
 
